@@ -6,6 +6,7 @@ from django.urls import reverse
 
 from .models import User
 
+from .models import Listing
 
 def index(request):
     return render(request, "auctions/index.html")
@@ -61,3 +62,17 @@ def register(request):
         return HttpResponseRedirect(reverse("index"))
     else:
         return render(request, "auctions/register.html")
+
+def create_listing(request):
+    if request.user.is_authenticated and request.method == "POST":
+        if request.POST.get('listing_image') is None:
+            url = "https://imgur.com/gallery/rQ4ofyB"
+        else:
+            url = request.POST.get('listing_image')
+
+
+
+
+
+
+
