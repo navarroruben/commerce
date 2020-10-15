@@ -1,0 +1,32 @@
+{% extends "auctions/layout.html" %}
+
+{% block title %}
+  Create a Listing
+{% endblock %}
+
+{% block body %}
+        <form action="{% url 'create_listing' %}" method="POST">
+            {% csrf_token %}
+             <div class="form-group">
+                <label for="list_title">Listing Title</label>
+                <input type="text" class="form-control" id="list_title" aria-describedby="listingTitle" placeholder="Enter Listing Title" style="width: 30%;">
+            </div>
+            <div class="form-group">
+                <label for="short_listing_description">Short Listing Description</label>
+                <input type="text" class="form-control" id="short_listing_description" aria-describedby="shortlistingdescription" placeholder="Enter short summary" style="width: 50%;">
+            </div>
+            <div class="form-group">
+                <label for="starting_bid">Starting Bid</label>
+                <input type="number" min="0" class="form-control" id="starting_bid" placeholder="Enter Starting Bid" style="width: 10%;">
+            </div>
+            <div class="form-group">
+                <label for="listing_image">Image Link</label>
+                <input type="url" min="0" class="form-control" id="listing_image" placeholder="Entry link to listing image" style="width: 20%;">
+            </div>
+            <div class="form-group">
+                <label for="long_listing_description">Long Listing Description</label>
+                <textarea class="form-control" id="long_listing_description" placeholder="Enter details" rows="12"></textarea>
+            </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+{% endblock %}
